@@ -551,6 +551,58 @@ nav {
     margin: 0;
 }
 
+/* -------------------- FOOTER (CORREÇÃO DOS LINKS AZUIS) -------------------- */
+.footer-section {
+    background-color: var(--color-text-dark); 
+    color: #ddd;
+    padding: 60px 0 0 0;
+    font-size: 0.9em;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr; 
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: start;
+}
+
+.footer-img-logo { height: 60px; width: auto; display: block; }
+.footer-col h4 { color: var(--color-primary); font-weight: 600; margin-bottom: 20px; text-transform: uppercase; }
+
+/* Forçando a cor dos links para não ficarem azuis */
+.footer-col ul li a, .social-link { 
+    color: #bbb !important; 
+    text-decoration: none !important; 
+    transition: 0.3s; 
+}
+.footer-col ul li a:hover, .social-link:hover { color: var(--color-primary) !important; }
+
+.social-link { display: flex; align-items: center; margin-bottom: 12px; }
+.social-link .icon { margin-right: 10px; color: var(--color-primary); }
+
+.map-container { width: 100%; border-radius: 8px; overflow: hidden; margin-top: 10px; }
+
+/* COPYRIGHT E PRIME RANK */
+.footer-copyright { border-top: 1px solid #333; padding: 20px 0; color: #777; margin-top: 20px; text-align: center; }
+.copyright-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+.developer-info { display: flex; align-items: center; gap: 10px; }
+
+.developer-info a {
+    display: flex !important;
+    align-items: center !important;
+    width: 90px !important;
+}
+
+.logo-developer {
+    width: 100% !important;
+    height: auto !important;
+    filter: grayscale(100%) brightness(1.5);
+    transition: 0.3s;
+}
+
+.logo-developer:hover { filter: none; transform: scale(1.1); }
+
 /* --- BOTÃO VOLTAR AO TOPO --- */
 #scrollToTopBtn {
     display: none; /* Começa escondido, o JS vai mostrar */
@@ -573,7 +625,7 @@ nav {
 }
 
 #scrollToTopBtn:hover {
-    background-color: #ffffff; /* Roxo um pouco mais escuro */
+    background-color: #05224e; /* Roxo um pouco mais escuro */
 }
 
 /* --- ESTILO DO BOTÃO LEIA MAIS --- */
@@ -915,6 +967,34 @@ nav {
     .footer-copyright {
         padding: 15px 0;
     }
+
+/* Container da Logo no Footer */
+.footer-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* CENTRALIZA A LOGO */
+    text-align: center;       /* CENTRALIZA O TEXTO ABAIXO DA LOGO */
+    gap: 15px;
+    margin-bottom: 30px;
+    grid-column: 1 / -1;      /* FAZ A LOGO OCUPAR A LARGURA TODA ACIMA DAS COLUNAS */
+}
+
+.footer-img-logo {
+    height: 70px;             /* Ajuste o tamanho se achar pequeno */
+    width: auto;
+    display: block;
+}
+
+.footer-seo-tagline {
+    font-family: var(--font-body);
+    font-size: 1.1em;
+    color: var(--color-light);
+    max-width: 600px;         /* Limita a largura para o texto não ficar esticado */
+    margin: 0 auto;           /* Centraliza o bloco de texto */
+    line-height: 1.4;
+}
+    .copyright-content { flex-direction: column; }
+    .developer-info a { width: 80px !important; margin-top: 10px; }
     
     #scrollToTopBtn {
         width: 40px;
@@ -1095,4 +1175,55 @@ nav {
 
 .breadcrumb-nav a:hover {
   text-decoration: underline;
+}
+
+/* --- ESTILO PARA DESKTOP --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    left: 40px; /* Canto esquerdo */
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: pulsar 2s infinite;
+}
+
+/* --- AJUSTES PARA MOBILE (Telas até 768px) --- */
+@media screen and (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 40px;
+        left: 20px; /* Menor margem no celular */
+        font-size: 25px;
+    }
+}
+
+/* --- ANIMAÇÃO DE PULSAR --- */
+@keyframes pulsar {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
 }
